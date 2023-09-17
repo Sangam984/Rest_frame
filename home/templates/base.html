@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    {% load static %}
+    <style>
+        /* Custom CSS */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .navbar {
+            background-color: #3498db;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            margin-top: 20px;
+        }
+
+        .hero-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 50px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            opacity: 0;
+        }
+
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+
+        /* Developer Profile */
+        .developer-profile {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        .profile-image {
+            text-align: center;
+        }
+
+        .profile-image img {
+            max-width: 200px;
+            border-radius: 50%;
+        }
+
+        .profile-details {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-details h2 {
+            font-size: 24px;
+        }
+
+        .profile-details p {
+            font-size: 18px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Hamro_School</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "grade" %}">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "home" %}">Home</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block home %}
+    <!-- Hero Section -->
+    <div class="container hero-content animated fadeInUp">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Welcome to Hamro_School Learning Platform</h1>
+                <p>This wiil help Student in many aspects to Clear there confusions.<br>
+                  <strong><samp>Nepal Will learn And Nepal will Grow</samp></strong
+                </p>
+                <a class="btn btn-primary hero-button" href="#">Get Started</a>
+            </div>
+            
+            <div class="col-md-6 hero-image">
+                <img src="{% static 'logo.png' %}" alt="Learning Platform" class="img-fluid">
+                {% comment %} <img src='/media/dev.jpg' alt="My Image"> {% endcomment %}
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    
+    {% endblock content %}
+
+
+
+    <!-- Developer Profile Section -->
+    <div class="container developer-profile">
+        <div class="row">
+            <div class="col-md-4 profile-image">
+                <img src="{% static 'dev.jpg' %}" alt="Developer" class="img-fluid">
+            </div>
+            <div class="col-md-8 profile-details">
+                <h2>Meet the Developer</h2>
+                <p>Hello, I am Sangam Silwal. I am passionate about Developing User Friendly webpages to serve you .</p>
+            </div>
+        </div>
+    </div>
+    {% endblock home %}
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block home %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Select Your Class</h2>
+    <ul class="list-group">
+        {% for object in object_list %}
+        <li class="list-group-item custom-list-item">
+            <a href="{% url 'subs' object.pk %}" class="grade-link">{{ object.grade }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+    /* Custom CSS */
+    .custom-list-item {
+        background-color: #f8f9fa;
+        border: 1px solid #d1d3e2;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .grade-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .grade-link:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock home %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block home %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Content Titles:</h2>
+    <ul class="list-group">
+        {% for title in grade_sub.content_set.all %}
+        <li class="list-group-item custom-list-item">
+            <a href="{% url 'content' title.pk %}" class="content-link">{{ title.title }}</a>
+        </li>
+        {% endfor %}
+        {% comment %} {% for title in grade_sub.content_set.all %}
+        <li class="list-group-item custom-list-item">
+            <a href="{% url 'content' title.pk %}" class="content-link">{{ title.title }}</a>
+        </li>
+        {% endfor %} {% endcomment %}
+    </ul>
+</div>
+
+<style>
+    /* Custom CSS */
+    .custom-list-item {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 15px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .content-link {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .content-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Additional Bootstrap Styles (if needed) */
+    .list-group {
+        /* Add additional styles here */
+    }
+</style>
+{% endblock home %}

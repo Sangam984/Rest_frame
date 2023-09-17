@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% endblock content %}
+{% comment %} <samp>Grade</samp>
+<ul>
+{%for object in object_list%}
+<li><a href = "{% url "subs" object.pk %}">{{object.grade}}</a></li>
+{% endfor %}
+</ul> {% endcomment %}
